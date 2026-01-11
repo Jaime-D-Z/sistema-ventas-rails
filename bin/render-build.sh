@@ -3,8 +3,7 @@
 set -o errexit
 
 bundle install
-bundle exec rake assets:precompile
-bundle exec rake assets:clean
+# Comentamos la línea de assets:precompile
+# bundle exec rake assets:precompile
+# bundle exec rake assets:clean
 bundle exec rake db:migrate
-
-chmod +x bin/render-build.sh

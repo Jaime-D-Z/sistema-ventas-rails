@@ -31,7 +31,6 @@ gem "solid_queue"
 gem "solid_cable"
 gem 'devise'  # Para autenticación
 gem 'bootstrap', '~> 5.3.0'  # Para diseño
-gem "cssbundling-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
