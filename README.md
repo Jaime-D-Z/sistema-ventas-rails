@@ -63,13 +63,7 @@ git clone <repositorio.git>
 cd sistema_ventas
 ```
 
-2. Instala las dependencias Ruby:
-
-```bash
-bundle install
-```
-
-3. Instala dependencias de JS/CSS si aplicara (opcional):
+Otras gems: `jbuilder`, `image_processing`, `sassc-rails` y utilidades de desarrollo (`bootsnap`, `brakeman`, `bundler-audit`). 3. Instala dependencias de JS/CSS si aplicara (opcional):
 
 ```bash
 # Si el proyecto usa cssbundling con npm/Esbuild u otra herramienta
