@@ -1,7 +1,12 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+# Generar master.key si RAILS_MASTER_KEY está definida pero el archivo no existe
+if [ -n "$RAILS_MASTER_KEY" ] && [ ! -f config/master.key ]; then
+  echo "Creando config/master.key desde RAILS_MASTER_KEY..."
+  echo "$RAILS_MASTER_KEY" > config/master.key
+  chmod 600 config/master.key
+fi
+
   ./bin/rails db:prepare
 fi
 

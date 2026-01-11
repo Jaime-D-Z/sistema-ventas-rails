@@ -95,6 +95,33 @@ bin/rails server -p 3000
 
 Abre `http://localhost:3000` en tu navegador.
 
+## 🐳 Despliegue con Docker
+
+1. **Generar `RAILS_MASTER_KEY`:**
+
+```bash
+openssl rand -hex 32
+```
+
+2. **Construir imagen:**
+
+```bash
+docker build -t sistema_ventas .
+```
+
+3. **Ejecutar contenedor:**
+
+```bash
+docker run -d \
+  -p 3000:3000 \
+  -e RAILS_ENV=development \
+  -e RAILS_MASTER_KEY=<clave_generada> \
+  --name sistema_ventas \
+  sistema_ventas
+```
+
+Para despliegue en producción y configuración avanzada, ver [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## ▶️ Ejecutar en desarrollo
 
 - Registrar un usuario (Devise) y acceder al panel.
