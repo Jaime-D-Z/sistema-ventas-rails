@@ -203,14 +203,4 @@ Licencia corta (resumen): puedes usar, copiar, modificar y distribuir el softwar
 
 ## ✍️ Autor
 
-- Jaime (usuario del repositorio)
-
----
-
-Si quieres, puedo:
-
-- Añadir ejemplos visuales (capturas o screenshots) de la UI.
-- Generar un `CONTRIBUTING.md` y un `CHANGELOG.md` inicial.
-- Crear un `Procfile` o pasos de Docker si quieres desplegar en contenedor.
-
-¿Qué prefieres que haga a continuación?
+- Jaime
