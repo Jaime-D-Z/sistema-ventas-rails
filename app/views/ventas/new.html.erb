@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <h1>Nueva Venta</h1>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
+
+  <%= form_with(url: ventas_path, method: :post) do |form| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5>Seleccionar Productos</h5>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @productos.each do |producto| %>
+              <tr>
+                <td><%= producto.nombre %></td>
+                <td>$<%= number_with_precision(producto.precio, precision: 2) %></td>
+                <td><%= producto.stock %></td>
+                <td>
+                  <%= number_field_tag "productos[#{producto.id}]", 0, 
+                      min: 0, 
+                      max: producto.stock,
+                      class: "form-control form-control-sm",
+                      style: "width: 100px" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <%= form.submit "Realizar Venta", class: "btn btn-success" %>
+      <%= link_to "Cancelar", ventas_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

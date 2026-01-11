@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Productos</h1>
+    <%= link_to "Nuevo Producto", new_producto_path, class: "btn btn-primary" %>
+  </div>
+
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @productos.each do |producto| %>
+        <tr>
+          <td><%= producto.nombre %></td>
+          <td>$<%= number_with_precision(producto.precio, precision: 2) %></td>
+          <td><%= producto.stock %></td>
+          <td><%= producto.descripcion %></td>
+          <td>
+            <%= link_to "Editar", edit_producto_path(producto), class: "btn btn-sm btn-warning" %>
+            <%= button_to "Eliminar", producto_path(producto), 
+                method: :delete, 
+                data: { confirm: "¿Estás seguro?" },
+                class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

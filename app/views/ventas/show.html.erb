@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h1>Detalle de Venta #<%= @venta.id %></h1>
+  
+  <div class="card mt-3">
+    <div class="card-body">
+      <p><strong>Fecha:</strong> <%= @venta.fecha.strftime("%d/%m/%Y %H:%M") %></p>
+      <p><strong>Usuario:</strong> <%= @venta.user.email %></p>
+      
+      <h5 class="mt-4">Productos</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @venta.detalle_ventas.each do |detalle| %>
+            <tr>
+              <td><%= detalle.producto.nombre %></td>
+              <td>$<%= number_with_precision(detalle.producto.precio, precision: 2) %></td>
+              <td><%= detalle.cantidad %></td>
+              <td>$<%= number_with_precision(detalle.subtotal, precision: 2) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="text-end"><strong>Total:</strong></td>
+            <td><strong>$<%= number_with_precision(@venta.total, precision: 2) %></strong></td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <%= link_to "Volver a Ventas", ventas_path, class: "btn btn-secondary mt-3" %>
+    </div>
+  </div>
+</div>
