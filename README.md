@@ -116,6 +116,24 @@ docker run -d \
 
 Para despliegue en producción y configuración avanzada, ver [DEPLOYMENT.md](DEPLOYMENT.md).
 
+## ⚠️ Nota sobre assets y Sprockets
+
+Este proyecto usa Sprockets para algunos assets. Si ves el error:
+
+```
+Sprockets::Railtie::ManifestNeededError: Expected to find a manifest file in `app/assets/config/manifest.js`
+```
+
+Asegúrate de que existe `app/assets/config/manifest.js` con al menos:
+
+```js
+//= link_tree ../images
+//= link_directory ../javascripts .js
+//= link_directory ../stylesheets .css
+```
+
+Después ejecuta `bin/rails assets:precompile` localmente o reconstruye la imagen Docker.
+
 ## ▶️ Ejecutar en desarrollo
 
 - Registrar un usuario (Devise) y acceder al panel.
