@@ -31,7 +31,7 @@ gem "solid_queue"
 gem "solid_cable"
 gem 'devise'  # Para autenticación
 gem 'sassc-rails'  # Compilador Sass puro para Bootstrap
-gem 'bootstrap', '~> 5.3.0'  # Para diseño
+gem 'bootstrap', '~> 5.3.8'  # Para diseño
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
